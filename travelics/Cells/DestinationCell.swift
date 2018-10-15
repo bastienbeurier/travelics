@@ -8,17 +8,27 @@
 
 import UIKit
 
+import SnapKit
+
 class DestinationCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     
+    var graphiticsOverlay : UIView?
+    
     var imageUrl: String? {
         didSet {
             guard let imageUrl = imageUrl else { return }
             downloadImage(from: imageUrl)
         }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super .init(coder: aDecoder)
+        
+        graphiticsOverlay = UIView.addGraphiticsOverlayTo(superview: contentView)
     }
     
     func downloadImage(from urlString: String) {
@@ -35,6 +45,10 @@ class DestinationCell: UICollectionViewCell {
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func toggleGraphiticsOverlay(isVisible: Bool) {
+        graphiticsOverlay?.isHidden = !isVisible
     }
     
 }

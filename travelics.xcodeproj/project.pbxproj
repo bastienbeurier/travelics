@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B9C9D98217490DA0076B483 /* UIColor+Graphitics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C9D97217490DA0076B483 /* UIColor+Graphitics.swift */; };
+		0B9C9D9A217498780076B483 /* UIView+Graphitics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C9D99217498780076B483 /* UIView+Graphitics.swift */; };
 		0BB5A15B216B82B1002F4CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15A216B82B1002F4CFA /* AppDelegate.swift */; };
 		0BB5A15D216B82B1002F4CFA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15C216B82B1002F4CFA /* FirstViewController.swift */; };
 		0BB5A15F216B82B1002F4CFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15E216B82B1002F4CFA /* SearchViewController.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		08607876FE35A64FF494F357 /* Pods_travelics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B9C9D97217490DA0076B483 /* UIColor+Graphitics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Graphitics.swift"; sourceTree = "<group>"; };
+		0B9C9D99217498780076B483 /* UIView+Graphitics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Graphitics.swift"; sourceTree = "<group>"; };
 		0BB5A157216B82B1002F4CFA /* travelics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BB5A15A216B82B1002F4CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BB5A15C216B82B1002F4CFA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B9C9D96217490C50076B483 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0B9C9D97217490DA0076B483 /* UIColor+Graphitics.swift */,
+				0B9C9D99217498780076B483 /* UIView+Graphitics.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		0BB5A14E216B82B1002F4CFA = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +88,7 @@
 		0BB5A159216B82B1002F4CFA /* travelics */ = {
 			isa = PBXGroup;
 			children = (
+				0B9C9D96217490C50076B483 /* Extensions */,
 				0BB92EFC21747D6000CA236A /* View */,
 				0BB92EFB21747C2700CA236A /* Utils */,
 				0BB92EFA21747C2100CA236A /* Models */,
@@ -226,10 +240,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-travelics/Pods-travelics-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -264,10 +280,12 @@
 				0BB92EFE21747D7B00CA236A /* GraphiticsView.swift in Sources */,
 				0BBDF7ED217291B300F484AE /* SlidingCell.swift in Sources */,
 				0BEDAC402174821700551CEC /* MainTabBarController.swift in Sources */,
+				0B9C9D9A217498780076B483 /* UIView+Graphitics.swift in Sources */,
 				0BB5A15F216B82B1002F4CFA /* SearchViewController.swift in Sources */,
 				0BBDF7F1217292E100F484AE /* DestinationProvider.swift in Sources */,
 				0BBDF7EF2172929B00F484AE /* Destination.swift in Sources */,
 				0BB5A15B216B82B1002F4CFA /* AppDelegate.swift in Sources */,
+				0B9C9D98217490DA0076B483 /* UIColor+Graphitics.swift in Sources */,
 				0BBDF7EB2172918700F484AE /* DestinationCell.swift in Sources */,
 				0BB5A15D216B82B1002F4CFA /* FirstViewController.swift in Sources */,
 			);

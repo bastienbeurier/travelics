@@ -1,16 +1,20 @@
 PODS:
   - Floaty (4.1.0)
+  - SnapKit (4.0.1)
 
 DEPENDENCIES:
   - Floaty (~> 4.1.0)
+  - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Floaty
+    - SnapKit
 
 SPEC CHECKSUMS:
   Floaty: 1a4e213f3512cf3045ef9cb0c1ff456226d1f66a
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
 
-PODFILE CHECKSUM: 12e8aac46ce0a113d5abb2612824a0ce218d5221
+PODFILE CHECKSUM: b754750ca269e7a49c2e3b00b6aad8b556a6a395
 
 COCOAPODS: 1.5.3

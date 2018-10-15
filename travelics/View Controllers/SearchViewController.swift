@@ -14,6 +14,10 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var graphiticsOverlaysVisible = false
+    
+    var searchbarOverlay : UIView?
+    
     let destinations: [String: [Destination]] = DestinationProvider.destinations()
     let destinationTypes: [String] = DestinationProvider.destinationTypes()
     
@@ -23,8 +27,9 @@ class SearchViewController: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
+        
+        searchbarOverlay = UIView.addGraphiticsOverlayTo(superview: searchBar)
     }
-
 
 }
 
@@ -46,6 +51,7 @@ extension SearchViewController: UITableViewDataSource {
         
         cell.title = destinationType
         cell.destinations = destinationsForType
+        cell.toggleGraphiticsOverlays(isVisible: graphiticsOverlaysVisible)
         
         return cell
     }
@@ -60,3 +66,16 @@ extension SearchViewController: UITableViewDelegate {
     
 }
 
+extension SearchViewController {
+    
+    func toggleGraphiticsOverlays(isVisible: Bool) {
+        graphiticsOverlaysVisible = isVisible
+        
+        for case let cell as SlidingCell in tableView.visibleCells {
+            cell.toggleGraphiticsOverlays(isVisible: graphiticsOverlaysVisible)
+        }
+        
+        searchbarOverlay?.isHidden = !isVisible
+    }
+    
+}

@@ -14,6 +14,8 @@ class SlidingCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var graphiticsOverlayVisible = false
+    
     var title: String? {
         didSet {
             titleLabel.text = title
@@ -56,8 +58,21 @@ extension SlidingCell: UICollectionViewDataSource {
         cell.imageUrl = destination.image
         cell.titleLabel.text = destination.title
         cell.subtitleLabel.text = destination.subtitle
+        cell.toggleGraphiticsOverlay(isVisible: graphiticsOverlayVisible)
         
         return cell
+    }
+    
+}
+
+extension SlidingCell {
+    
+    func toggleGraphiticsOverlays(isVisible: Bool) {
+        graphiticsOverlayVisible = isVisible
+        
+        for case let cell as DestinationCell in collectionView.visibleCells {
+            cell.toggleGraphiticsOverlay(isVisible: graphiticsOverlayVisible)
+        }
     }
     
 }
