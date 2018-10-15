@@ -28,7 +28,7 @@ class SearchViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        searchbarOverlay = UIView.addGraphiticsOverlayTo(superview: searchBar)
+        searchbarOverlay = GraphiticsOverlay.init(superview: searchBar)
     }
 
 }

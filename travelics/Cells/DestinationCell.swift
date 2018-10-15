@@ -28,7 +28,7 @@ class DestinationCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         super .init(coder: aDecoder)
         
-        graphiticsOverlay = UIView.addGraphiticsOverlayTo(superview: contentView)
+        graphiticsOverlay = GraphiticsOverlay.init(superview: contentView)
     }
     
     func downloadImage(from urlString: String) {

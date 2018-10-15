@@ -27,7 +27,7 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController {
     
     func startGraphitics() {
-        Floaty.global.button.addItem("", icon: UIImage(), handler: { item in
+        Floaty.global.button.addItem("Hide", icon: UIImage(), handler: { item in
             self.exitTapped()
         })
         
@@ -72,7 +72,7 @@ extension MainTabBarController {
     func setupOverlays() {
         for view in tabBar.subviews {
             if view is UIControl {
-                let overlay = UIView.addGraphiticsOverlayTo(superview: view)
+                let overlay = GraphiticsOverlay.init(superview: view)
                 graphiticsOverlays.append(overlay)
             }
         }
