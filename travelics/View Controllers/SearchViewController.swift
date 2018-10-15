@@ -15,8 +15,8 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var graphiticsOverlaysVisible = false
-    
-    var searchbarOverlay : UIView?
+    var searchbarOverlay : GraphiticsOverlay?
+    var scrollBanner : GraphiticsScollBanner?
     
     let destinations: [String: [Destination]] = DestinationProvider.destinations()
     let destinationTypes: [String] = DestinationProvider.destinationTypes()
@@ -29,6 +29,7 @@ class SearchViewController: UIViewController {
         tableView.delegate = self
         
         searchbarOverlay = GraphiticsOverlay.init(superview: searchBar)
+        scrollBanner = GraphiticsScollBanner.init(scrollView: tableView)
     }
 
 }
@@ -54,6 +55,20 @@ extension SearchViewController: UITableViewDataSource {
         cell.toggleGraphiticsOverlays(isVisible: graphiticsOverlaysVisible)
         
         return cell
+    }
+    
+}
+
+extension SearchViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard let scrollBanner = scrollBanner else { return }
+        scrollBanner.isAllowedToBeVisible = true
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let scrollBanner = scrollBanner else { return }
+        scrollBanner.showWith(progress: Int(100 * scrollView.contentOffset.y / (scrollView.contentSize.height - scrollView.frame.size.height)))
     }
     
 }
