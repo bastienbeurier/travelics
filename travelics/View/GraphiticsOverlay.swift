@@ -30,7 +30,6 @@ class GraphiticsOverlay: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        
         let T: CGFloat = 3     // desired thickness of lines
         let G: CGFloat = 6     // desired gap between lines
         let W = rect.size.width

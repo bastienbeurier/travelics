@@ -15,6 +15,8 @@ class SlidingCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var graphiticsOverlayVisible = false
+    var graphiticsScrollBannerVisible = false
+    var scrollBanner : GraphiticsScrollBanner?
     
     var title: String? {
         didSet {
@@ -32,12 +34,12 @@ class SlidingCell: UITableViewCell {
         super.awakeFromNib()
         
         collectionView.dataSource = self
+        collectionView.delegate = self
+        scrollBanner = GraphiticsScrollBanner.init(scrollView: collectionView)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
@@ -65,6 +67,21 @@ extension SlidingCell: UICollectionViewDataSource {
     
 }
 
+extension SlidingCell: UICollectionViewDelegate, UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        guard let scrollBanner = scrollBanner else { return }
+        scrollBanner.isAllowedToBeVisible = graphiticsScrollBannerVisible
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let scrollBanner = scrollBanner else { return }
+        let currentProgress = Double(scrollView.contentOffset.x / (scrollView.contentSize.width - scrollView.frame.size.width))
+        scrollBanner.showWith(progress: max(0,0, min(1.0, currentProgress)))
+    }
+    
+}
+
 extension SlidingCell {
     
     func toggleGraphiticsOverlays(isVisible: Bool) {
@@ -72,6 +89,14 @@ extension SlidingCell {
         
         for case let cell as DestinationCell in collectionView.visibleCells {
             cell.toggleGraphiticsOverlay(isVisible: graphiticsOverlayVisible)
+        }
+    }
+    
+    func toggleGraphiticsScrollBanner(isVisible: Bool) {
+        graphiticsScrollBannerVisible = isVisible
+        
+        if (!isVisible) {
+            scrollBanner?.isHidden = true
         }
     }
     

@@ -8,26 +8,15 @@
 
 import UIKit
 
-class GraphiticsScollBanner: UIView {
+class GraphiticsScrollBanner: UIView {
     
     let label = UILabel()
     
     var timer = Timer()
     var shouldRenewTimer = false
     var isAllowedToBeVisible = false
-    var percentiles: [Int] = {
-        var result: [Int] = []
-        
-        let minSeen = Int.random(in: 0 ... 40)
-        var previousValue = 100
-        result.append(previousValue)
-        for _ in 0..<100 {
-            previousValue = Int.random(in: max(minSeen, previousValue - 5) ... previousValue)
-            result.append(previousValue)
-        }
-        
-        return result
-    }()
+    var minValue = Int.random(in: 20 ... 60)
+    var maxValue = 100
     
     convenience init(scrollView: UIView) {
         self.init(frame: CGRect.zero)
@@ -53,10 +42,11 @@ class GraphiticsScollBanner: UIView {
         }
     }
     
-    func showWith(progress: Int) {
+    func showWith(progress: Double) {
         guard isAllowedToBeVisible else { return }
         
-        label.text = "\(percentiles[max(0, min(99, progress))])%"
+        let viewPercent = maxValue - Int(progress*(Double(maxValue-minValue)))
+        label.text = "\(viewPercent)%"
         if (timer.isValid) {
             shouldRenewTimer = true
         } else {
@@ -66,7 +56,7 @@ class GraphiticsScollBanner: UIView {
     }
     
     func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (Timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
             if (self.shouldRenewTimer) {
                 self.shouldRenewTimer = false
             } else {
@@ -76,5 +66,3 @@ class GraphiticsScollBanner: UIView {
         }
     }
 }
-
-

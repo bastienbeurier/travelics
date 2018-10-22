@@ -44,20 +44,20 @@ extension MainTabBarController {
     
     func exitTapped() {
         Floaty.global.button.close()
-
         toggleGaphiticsOverlays(isVisible: false)
+        toggleGraphiticsScrollBanner(isVisible: false)
     }
     
     func actionTapped() {
         Floaty.global.button.close()
-        
         toggleGaphiticsOverlays(isVisible: true)
+        toggleGraphiticsScrollBanner(isVisible: false)
     }
     
     func viewTapped() {
         Floaty.global.button.close()
-        
         toggleGaphiticsOverlays(isVisible: false)
+        toggleGraphiticsScrollBanner(isVisible: true)
     }
     
     func toggleGaphiticsOverlays(isVisible: Bool) {
@@ -67,6 +67,11 @@ extension MainTabBarController {
         for overlay in graphiticsOverlays {
             overlay.isHidden = !isVisible
         }
+    }
+    
+    func toggleGraphiticsScrollBanner(isVisible: Bool) {
+        let searchVC = viewControllers![0] as! SearchViewController
+        searchVC.toggleGraphiticsScrollBanner(isVisible: isVisible)
     }
     
     func setupOverlays() {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B9C9D98217490DA0076B483 /* UIColor+Graphitics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C9D97217490DA0076B483 /* UIColor+Graphitics.swift */; };
-		0B9C9D9C2174C21B0076B483 /* GraphiticsScollBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C9D9B2174C21B0076B483 /* GraphiticsScollBanner.swift */; };
+		0B9C9D9C2174C21B0076B483 /* GraphiticsScrollBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9C9D9B2174C21B0076B483 /* GraphiticsScrollBanner.swift */; };
 		0BB5A15B216B82B1002F4CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15A216B82B1002F4CFA /* AppDelegate.swift */; };
 		0BB5A15D216B82B1002F4CFA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15C216B82B1002F4CFA /* FirstViewController.swift */; };
 		0BB5A15F216B82B1002F4CFA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB5A15E216B82B1002F4CFA /* SearchViewController.swift */; };
@@ -27,7 +27,7 @@
 /* Begin PBXFileReference section */
 		08607876FE35A64FF494F357 /* Pods_travelics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_travelics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B9C9D97217490DA0076B483 /* UIColor+Graphitics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Graphitics.swift"; sourceTree = "<group>"; };
-		0B9C9D9B2174C21B0076B483 /* GraphiticsScollBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphiticsScollBanner.swift; sourceTree = "<group>"; };
+		0B9C9D9B2174C21B0076B483 /* GraphiticsScrollBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphiticsScrollBanner.swift; sourceTree = "<group>"; };
 		0BB5A157216B82B1002F4CFA /* travelics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = travelics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BB5A15A216B82B1002F4CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BB5A15C216B82B1002F4CFA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -141,7 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				0BB92EFD21747D7B00CA236A /* GraphiticsOverlay.swift */,
-				0B9C9D9B2174C21B0076B483 /* GraphiticsScollBanner.swift */,
+				0B9C9D9B2174C21B0076B483 /* GraphiticsScrollBanner.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,7 +282,7 @@
 				0BEDAC402174821700551CEC /* MainTabBarController.swift in Sources */,
 				0BB5A15F216B82B1002F4CFA /* SearchViewController.swift in Sources */,
 				0BBDF7F1217292E100F484AE /* DestinationProvider.swift in Sources */,
-				0B9C9D9C2174C21B0076B483 /* GraphiticsScollBanner.swift in Sources */,
+				0B9C9D9C2174C21B0076B483 /* GraphiticsScrollBanner.swift in Sources */,
 				0BBDF7EF2172929B00F484AE /* Destination.swift in Sources */,
 				0BB5A15B216B82B1002F4CFA /* AppDelegate.swift in Sources */,
 				0B9C9D98217490DA0076B483 /* UIColor+Graphitics.swift in Sources */,
