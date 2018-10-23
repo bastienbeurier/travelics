@@ -88,23 +88,23 @@ extension SearchViewController {
     
     func toggleGraphiticsOverlays(isVisible: Bool) {
         graphiticsOverlaysVisible = isVisible
+        searchbarOverlay?.isHidden = !isVisible
         
+        guard let tableView = tableView else { return }
         for case let cell as SlidingCell in tableView.visibleCells {
             cell.toggleGraphiticsOverlays(isVisible: isVisible)
         }
-        
-        searchbarOverlay?.isHidden = !isVisible
     }
     
     func toggleGraphiticsScrollBanner(isVisible: Bool) {
         graphiticsScrollBannerVisible = isVisible
-        
-        for case let cell as SlidingCell in tableView.visibleCells {
-            cell.toggleGraphiticsScrollBanner(isVisible: isVisible)
-        }
-        
         if (!isVisible) {
             scrollBanner?.isHidden = true
+        }
+        
+        guard let tableView = tableView else { return }
+        for case let cell as SlidingCell in tableView.visibleCells {
+            cell.toggleGraphiticsScrollBanner(isVisible: isVisible)
         }
     }
     

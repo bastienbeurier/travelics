@@ -1,29 +1,27 @@
 //
-//  DestinationCell.swift
+//  UpcomingTripCell.swift
 //  travelics
 //
-//  Created by Bastien Beurier on 10/13/18.
+//  Created by Bastien Beurier on 10/22/18.
 //  Copyright © 2018 Bastien Beurier. All rights reserved.
 //
 
 import UIKit
 
 import SDWebImage
-import SnapKit
 
-class DestinationCell: UICollectionViewCell {
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var subtitleLabel: UILabel!
+class TripCell: UITableViewCell {
+
+    @IBOutlet weak var titleView: UILabel!
+    @IBOutlet weak var tripImageView: UIImageView!
     
     var graphiticsOverlay : UIView?
     
     var imageUrl: String? {
         didSet {
-            guard let imageView = imageView, let imageUrl = imageUrl else { return }
-            imageView.image = nil
-            imageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
+            guard let imageUrl = imageUrl else { return }
+            tripImageView.image = nil
+            tripImageView.sd_setImage(with: URL(string: imageUrl), completed: nil)
         }
     }
     
@@ -36,5 +34,5 @@ class DestinationCell: UICollectionViewCell {
     func toggleGraphiticsOverlay(isVisible: Bool) {
         graphiticsOverlay?.isHidden = !isVisible
     }
-    
+
 }

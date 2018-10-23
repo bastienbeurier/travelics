@@ -41,6 +41,12 @@ class SlidingCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .right, animated: false)
+    }
 
 }
 
@@ -87,6 +93,7 @@ extension SlidingCell {
     func toggleGraphiticsOverlays(isVisible: Bool) {
         graphiticsOverlayVisible = isVisible
         
+        guard let collectionView = collectionView else { return }
         for case let cell as DestinationCell in collectionView.visibleCells {
             cell.toggleGraphiticsOverlay(isVisible: graphiticsOverlayVisible)
         }

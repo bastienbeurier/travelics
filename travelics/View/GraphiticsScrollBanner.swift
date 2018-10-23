@@ -40,6 +40,8 @@ class GraphiticsScrollBanner: UIView {
         label.snp.makeConstraints { (make) -> Void in
             make.edges.equalToSuperview()
         }
+        
+        timer.invalidate()
     }
     
     func showWith(progress: Double) {
@@ -50,8 +52,8 @@ class GraphiticsScrollBanner: UIView {
         if (timer.isValid) {
             shouldRenewTimer = true
         } else {
-            isHidden = false
             startTimer()
+            isHidden = false
         }
     }
     
