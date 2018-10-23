@@ -18,11 +18,13 @@ class GraphiticsScrollBanner: UIView {
     var minValue = Int.random(in: 20 ... 60)
     var maxValue = 100
     
+    weak var scrollView: UIView?
+    
     convenience init(scrollView: UIView) {
         self.init(frame: CGRect.zero)
         
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.layer.borderWidth = 6.0
+        self.scrollView = scrollView
+        
         self.isHidden = true
         self.isUserInteractionEnabled = false
         scrollView.superview?.addSubview(self)
@@ -48,7 +50,15 @@ class GraphiticsScrollBanner: UIView {
         guard isAllowedToBeVisible else { return }
         
         let viewPercent = maxValue - Int(progress*(Double(maxValue-minValue)))
+        
         label.text = "\(viewPercent)%"
+        
+        let colorIndex = Int(round(Double(viewPercent)/10.0)) - 1
+        let color = UIColor.graphiticsColors()[colorIndex]
+        backgroundColor = color.withAlphaComponent(0.8)
+        scrollView?.layer.borderWidth = 5.0
+        scrollView?.layer.borderColor = color.cgColor
+        
         if (timer.isValid) {
             shouldRenewTimer = true
         } else {
@@ -64,6 +74,7 @@ class GraphiticsScrollBanner: UIView {
             } else {
                 self.timer.invalidate()
                 self.isHidden = true
+                self.scrollView?.layer.borderWidth = 0.0
             }
         }
     }
